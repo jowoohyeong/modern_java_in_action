@@ -1,9 +1,9 @@
-package benchmark;
+package chapter07.benchmark;
 
 import java.util.concurrent.TimeUnit;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 
+import chapter07.ForkJoinSumCalculator;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
@@ -56,6 +56,11 @@ public class ParallelStreamBenchmark {
   @Benchmark
   public long parallelRangedSum() {
     return LongStream.rangeClosed(1, N).parallel().reduce(0L, Long::sum);
+  }
+
+  @Benchmark
+  public long forkJoinCalculatorSum(){
+    return ForkJoinSumCalculator.forkJoinSum(N);
   }
   @TearDown(Level.Invocation)
   public void tearDown() {

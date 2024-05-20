@@ -3,7 +3,8 @@ dontinline,*.*_avgt_jmhStub
 dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
-inline,benchmark/ParallelStreamBenchmark.iterativeSum
-inline,benchmark/ParallelStreamBenchmark.parallelRangedSum
-inline,benchmark/ParallelStreamBenchmark.rangedSum
-inline,benchmark/ParallelStreamBenchmark.tearDown
+inline,chapter07/benchmark/ParallelStreamBenchmark.forkJoinCalculatorSum
+inline,chapter07/benchmark/ParallelStreamBenchmark.iterativeSum
+inline,chapter07/benchmark/ParallelStreamBenchmark.parallelRangedSum
+inline,chapter07/benchmark/ParallelStreamBenchmark.rangedSum
+inline,chapter07/benchmark/ParallelStreamBenchmark.tearDown

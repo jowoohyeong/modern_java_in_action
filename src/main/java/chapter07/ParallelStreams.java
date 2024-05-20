@@ -1,6 +1,5 @@
-package chapter07.parallelStream01;
+package chapter07;
 
-import java.util.function.Function;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
@@ -11,9 +10,7 @@ public class ParallelStreams {
 //        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "12");
 
         // 소요 시간 체크, iterativceSum, sequentialSum, parallelSum
-        // runningTimeCheck();
-
-        System.out.println("SideEffect parallel sum done in: " + measurePerf(ParallelStreams::sideEffectParallelSum, 10_000_000L) + "msecs");
+        runningTimeCheck();
 
   }
 
@@ -62,7 +59,7 @@ public class ParallelStreams {
     }
 
   }
-  void runningTimeCheck(){
+  public static void runningTimeCheck(){
         long n = 242231;
         long startTime = System.nanoTime();
         System.out.println(ParallelStreams.iterativeSum(n));
@@ -83,18 +80,4 @@ public class ParallelStreams {
         duration = (endTime - startTime);          // 소요된 시간 계산 (나노초 단위)
         System.out.println("소요된 시간 (parallelSum): " + duration / 1000000);
     }
-    public static <T, R> long measurePerf(Function<T, R> f, T input) {
-        long fastest = Long.MAX_VALUE;
-        for (int i = 0; i < 10; i++) {
-          long start = System.nanoTime();
-          R result = f.apply(input);
-          long duration = (System.nanoTime() - start) / 1_000_000;
-          System.out.println("Result: " + result);
-          if (duration < fastest) {
-            fastest = duration;
-          }
-        }
-        return fastest;
-    }
-
 }
